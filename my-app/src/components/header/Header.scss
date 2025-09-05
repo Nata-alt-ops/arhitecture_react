@@ -1,0 +1,66 @@
+$color_main: #1B1A1A;
+$color_main1: #ffffff;
+$main_font: 'Poppins', sans-serif;
+@mixin buttons{
+    font-family: $main_font;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: $color_main;
+}
+
+header {
+  font-family: $main_font;
+  background-color: $color_main1;
+  position: fixed;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+
+    .d-flex {
+      width: calc(100% - 304px);
+   
+
+      .header_logo{
+        padding-top: 12px;
+      }
+
+      .buttons{
+        button{
+            @include buttons();
+            border: none;
+            background: none;
+            padding-right: 30px;
+            padding-top: 10px;
+            cursor: pointer;
+        }
+      }
+      .t{
+      
+        
+        
+        button{
+            border-radius: 14px;
+            font-size: 16px;
+            font-family: $main_font;
+            width: 155px;
+            height: 46px;
+            text-align: center;
+            cursor: pointer;
+            padding: 0px 4px;
+            
+        }
+      }
+
+    
+
+
+    }
+  
+
+}

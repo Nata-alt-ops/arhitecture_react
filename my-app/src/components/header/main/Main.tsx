@@ -1,9 +1,9 @@
 // src/main/Main.tsx
 import React from 'react';
-import '../main/Main.scss';
+import './Main.scss';
 
 
-export const Main: React.FC = () => {
+export const Main = () => {
   return (
     <div className="example_page">
       <main>

@@ -1,17 +1,20 @@
 // src/components/Header/Header.tsx
 import React from 'react';
+import './Header.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const navItems = [
-  { id: 'home', label: 'Главная' },
-  { id: 'gallery', label: 'Галерея' },
-  { id: 'accordion', label: 'Аккордеон' },
-  { id: 'toasts', label: 'Тосты' },
+  { id: 'home', label: 'Projects' },
+  { id: 'gallery', label: 'About' },
+  { id: 'accordion', label: 'News' },
+  { id: 'toasts', label: 'Team' },
+  { id: 'toasts', label: 'Contact' },
 ] as const;
 
 type NavItem = typeof navItems[number];
 
-export const Header: React.FC = () => {
-  const handleScroll = (e: React.MouseEvent<HTMLButtonElement>, targetId: NavItem['id']) => {
+export const Header = () => {
+  const handleScroll = (e: any, targetId: NavItem['id']) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
     if (element) {
@@ -20,47 +23,59 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header style={headerStyle}>
-      <div style={navContainerStyle}>
+    <header>
+
+      <div className='d-flex'>
+        <div className='p-2 flex-grow-1 '>
+          <img src='/IMAGE.svg' className='header_logo'></img>
+        </div>
+
+        <div className='p-2 buttons'>
         {navItems.map((item) => (
           <button
             key={item.id}
             onClick={(e) => handleScroll(e, item.id)}
-            style={buttonStyle}
+         
           >
             {item.label}
           </button>
         ))}
+        </div>
+
+        <div className='p-2'>
+          <div className='t'>
+          <button type="button" className="btn btn-dark ">Get template</button>
+          </div>
+        </div>
       </div>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </header>
   );
 };
 
-// Стили
-const headerStyle: React.CSSProperties = {
-  backgroundColor: '#333',
-  padding: '1rem 0',
-  position: 'sticky',
-  top: 0,
-  zIndex: 1000,
-};
-
-const navContainerStyle: React.CSSProperties = {
-  display: 'flex',
-  justifyContent: 'center',
-  gap: '2rem',
-  flexWrap: 'wrap',
-};
-
-const buttonStyle: React.CSSProperties = {
-  background: 'none',
-  border: '2px solid #fff',
-  color: '#fff',
-  padding: '0.5rem 1rem',
-  borderRadius: '8px',
-  cursor: 'pointer',
-  fontSize: '1rem',
-  transition: 'background 0.3s, color 0.3s',
-};
-
-// Ховер: можно добавить CSS
